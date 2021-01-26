@@ -14,3 +14,8 @@ class TestDijkstra(TestCase):
         graph = create_invalid_path_graph()
         expected_path = ([], 0)
         self.assertEqual(dijkstra_path(graph, "A", "F"), expected_path)
+
+    def test_empty_graph(self):
+        graph = {}
+        expected_path = ([], 0)
+        self.assertEqual(dijkstra_path(graph, "A", "F"), expected_path)
