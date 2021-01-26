@@ -12,7 +12,7 @@ def create_valid_path_graph():
 
 def create_invalid_path_graph():
     """Removes the edges that connects to F vertex."""
-    valid_graph = valid_path_graph()
+    valid_graph = create_valid_path_graph()
     del valid_graph["C"]["F"]
     del valid_graph["E"]["F"]
     return valid_graph
