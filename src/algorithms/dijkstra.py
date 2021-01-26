@@ -12,7 +12,7 @@ def dijkstra_path(graph, start_vertex, end_vertex):
     distances = {vertex: float("inf") for vertex in graph.keys()}
     distances[start_vertex] = 0
 
-    open_vertices = [vertex for vertex in graph.keys()]
+    open_vertices = {vertex for vertex in graph.keys()}
 
     while open_vertices:
         vertex = find_shortest_distance(distances, open_vertices)
