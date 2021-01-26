@@ -16,14 +16,17 @@ def dijkstra_path(graph, start_vertex, end_vertex):
 
     while open_vertices:
         vertex = find_shortest_distance(distances, open_vertices)
+        if vertex is None:
+            return [], 0
+
         open_vertices.remove(vertex)
         shortest_path.append(vertex)
         if vertex == end_vertex:
-            break
+            return shortest_path, distances[end_vertex]
 
         for connected_vertex, distance in graph[vertex].items():
             new_distance = distances[vertex] + graph[vertex][connected_vertex]
             if new_distance < distances[connected_vertex]:
                 distances[connected_vertex] = new_distance
 
-    return shortest_path, distances[end_vertex]
+    return [], 0
