@@ -8,7 +8,7 @@ def find_shortest_distance(distances, open_vertices):
 
 
 def dijkstra_path(graph, start_vertex, end_vertex):
-    shortext_path = []
+    shortest_path = []
     distances = {vertex: float("inf") for vertex in graph.keys()}
     distances[start_vertex] = 0
 
@@ -17,7 +17,7 @@ def dijkstra_path(graph, start_vertex, end_vertex):
     while open_vertices:
         vertex = find_shortest_distance(distances, open_vertices)
         open_vertices.remove(vertex)
-        shortext_path.append(vertex)
+        shortest_path.append(vertex)
         if vertex == end_vertex:
             break
 
@@ -26,4 +26,4 @@ def dijkstra_path(graph, start_vertex, end_vertex):
             if new_distance < distances[connected_vertex]:
                 distances[connected_vertex] = new_distance
 
-    return shortext_path, distances[end_vertex]
+    return shortest_path, distances[end_vertex]
